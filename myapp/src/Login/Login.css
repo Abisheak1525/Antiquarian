@@ -1,0 +1,114 @@
+.login-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001; /* Make sure it's above other elements */
+}
+
+.login-modal-content {
+    background: #363636;
+    color: #bcbcbc;
+    padding: 20px;
+    border-radius: 8px;
+    position: relative;
+    width: 320px;
+    max-width: 80%;
+
+}
+
+.close-btn {
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.text {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #f78c00;
+}
+
+.data {
+    margin-bottom: 15px;
+}
+
+.data label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: small;
+}
+
+.data input {
+    background: #555;
+    color: #bcbcbc;
+    width: 95%;
+    height: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;   
+    outline: none;
+}
+
+.forgot-pass {
+    margin-bottom: 15px;
+    text-align: right;
+}
+
+.forgot-pass a {
+    color: #888;
+    text-decoration: none;
+}
+
+.forgot-pass a:hover {
+    text-decoration: underline;
+    color: #f78c00;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+}
+
+.btn button {
+    padding: 10px 20px;
+    border: none;
+    background: #555;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn button:hover {
+    background: #f78c00;
+    color: black;
+}
+
+.signup-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.signup-link a {
+    color: #888;
+    text-decoration: none;
+}
+
+.signup-link a:hover{
+    color: #f78c00;
+    cursor: pointer;
+}
+
+.span{
+    color: #f78c00;
+}

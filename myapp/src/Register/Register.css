@@ -1,0 +1,153 @@
+.rg-login-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001; /* Make sure it's above other elements */
+}
+
+.rg-login-modal-content {
+    background: #363636;
+    color: #bcbcbc;
+    padding: 20px;
+    border-radius: 8px;
+    position: relative;
+    width: 350px;
+    max-width: 80%;
+}
+
+.rg-close-btn {
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.rg-text {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #f78c00;
+}
+
+.rg-data {
+    margin-bottom: 15px;
+}
+
+.rg-data label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: small;
+}
+
+.rg-data input {
+    background: #555;
+    color: #bcbcbc;
+    width: 95%;
+    height: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;   
+    outline: none;
+}
+
+.rg-checker {
+    font-size: small;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.rg-checker input {
+    transform: scale(0.8); /* Adjust the size of the checkbox */
+    margin-right: 10px; /* Space between checkbox and label */
+}
+
+.rg-checker-password {
+    float: right;
+    font-size: small;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.rg-checker-password input {
+    transform: scale(0.8); /* Adjust the size of the checkbox */
+    margin-right: 10px; /* Space between checkbox and label */
+}
+
+.rg-forgot-pass {
+    margin-bottom: 15px;
+    text-align: right;
+}
+
+.rg-forgot-pass a {
+    color: #555;
+    text-decoration: none;
+}
+
+.rg-forgot-pass a:hover {
+    text-decoration: underline;
+    color: #f78c00;
+}
+
+.rg-btn {
+    display: flex;
+    justify-content: center;
+}
+
+.rg-btn button {
+    padding: 10px 20px;
+    border: none;
+    background: #555;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.rg-btn button:hover {
+    background: #f78c00;
+    color: black;
+}
+
+.rg-signup-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.rg-signup-link a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.rg-signup-link a:hover {
+    color: #f78c00;
+}
+
+.terms {
+    text-decoration: none;
+    color: #888;
+}
+
+.terms:hover {
+    text-decoration: underline;
+    color: #f78c00;
+}
+
+.show-pass {
+    text-decoration: none;
+    color: #888;
+}
+
+.show-pass:hover {
+    text-decoration: underline;
+    color: #f78c00;
+}

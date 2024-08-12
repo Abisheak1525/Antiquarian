@@ -1,0 +1,88 @@
+.dash-orders-container {
+  padding: 20px;
+  color: white;
+}
+
+.dash-orders-title {
+  font-size: 1.8em;
+  margin-bottom: 20px;
+}
+
+.dash-orders-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.dash-orders-table th, .dash-orders-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.dash-orders-table th {
+  background-color: #555;
+}
+
+.dash-orders-table tr:nth-child(even) {
+  background-color: #333;
+}
+
+.dash-orders-table tr:hover {
+  background-color: #444;
+}
+
+.dash-orders-view-button,
+.dash-orders-cancel-button {
+  margin-right: 5px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.dash-orders-view-button {
+  background-color: #666;
+  color: #4CAF50;
+  border: 1px solid #4CAF50;
+}
+.dash-orders-view-button:hover{
+  background: #4CAF50;
+  color: black;
+}
+
+.dash-orders-cancel-button {
+  background-color: #555;
+  color: #f44336;
+  border: 1px solid #f44336;
+}
+.dash-orders-cancel-button:hover{
+  color: black;
+  background: #f44336;
+}
+.dash-orders-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.dash-orders-card {
+  background-color: #444;
+  color: white;
+  border-radius: 5px;
+  padding: 10px;
+  width: 200px;
+  text-align: center;
+}
+
+.dash-orders-card-title {
+  font-size: 1.2em;
+  margin: 0 0 10px;
+}
+
+.dash-orders-card-customer,
+.dash-orders-card-date,
+.dash-orders-card-total,
+.dash-orders-card-status {
+  margin: 5px 0;
+}

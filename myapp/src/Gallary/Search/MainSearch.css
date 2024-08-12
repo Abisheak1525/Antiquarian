@@ -1,0 +1,65 @@
+/* src/StreamingPage.css */
+.MainSearch-all {
+  top: 20px;
+    position: relative;
+    height: 400px;
+    background-color: #1b1b1b;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+.MS-content {
+    z-index: 1;
+    max-width: 600px;
+  }
+  
+.MS-content h1 {
+    font-size: 2rem;
+}
+  
+.MS-highlight {
+    color: #f78c00;
+  }
+  
+  .MS-search-box {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .MS-search-box input {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-right: 10px;
+    outline: none;
+  }
+  
+  .MS-search-box button {
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    background-color: #666;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .MS-search-box button img {
+    width: 20px;
+    height: 20px;
+  }
+  .MS-search-box button:hover{
+    background-color: #f78c00;
+  }
+  
+  .MS-help {
+    margin-top: 20px;
+    font-size: 1rem;
+  }
+  

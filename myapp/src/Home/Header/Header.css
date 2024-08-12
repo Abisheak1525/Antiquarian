@@ -1,0 +1,123 @@
+/* Header.css */
+
+.gal-hm-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 10px 20px;
+  position: fixed;
+  border: transparent;
+  z-index: 1000;
+  width: 100%;
+}
+
+.gal-hm-logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.gal-hm-logo {
+  height: 45px;
+}
+
+.gal-hm-logo:hover {
+  cursor: pointer;
+}
+
+.gal-hm-navbar {
+  display: flex;
+  align-items: center;
+}
+
+.gal-hm-nav-links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.gal-hm-nav-links > li {
+  position: relative;
+  margin: 0 50px;
+
+}
+
+.gal-hm-nav-links a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.gal-hm-nav-links a:hover {
+  color: #f78c00;
+}
+
+.gal-dropdown {
+  position: relative;
+  left: -10px;
+}
+
+.gal-dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  border: transparent;
+  border-radius: 5px;
+  list-style: none;
+  padding: 10px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  cursor: pointer;
+}
+
+.gal-dropdown-content li {
+  margin: 0;
+  padding: 0;
+}
+
+.gal-dropdown-content li a {
+  display: block;
+  padding: 10px 20px;
+  color: #555555;
+  white-space: nowrap;
+}
+
+.gal-dropdown-content li a:hover {
+  background-color: #fca32d;
+  color: #fff;
+}
+
+.gal-dropdown:hover .gal-dropdown-content {
+  display: block;
+}
+.gal-hm-login-button{
+  color: white;
+  background: #f78c00;
+  border: none;
+  width: 60px;
+  height: 30px;
+  border-radius: 3px;
+}
+.gal-hm-login-button:hover{
+  cursor: pointer;
+  background: #555;
+}
+.gal-hm-user-name{
+  color: white;
+  cursor: pointer;
+}
+#gal-others{
+  left: -45px;
+}
+.gal-hm-user-name{
+  font-weight: bold;
+}
+.user-icon{
+  height: 39px;
+}

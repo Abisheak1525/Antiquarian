@@ -1,0 +1,75 @@
+.lan-all {
+    height: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #2d2c2c;
+    padding: 20px;
+    color: #fff;
+    text-align: center;
+  }
+  
+  .lan-msg {
+    margin-top: 100px;
+    height: 200px;
+    width: 600px;
+    background-color: #1d1d1d;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 70px;
+  }
+  
+  .lan-icon img {
+    width: 150px;
+    height: auto;
+  }
+  
+  .lan-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .lan-content p {
+    margin: 0;
+    font-size: 1rem;
+  }
+  .lan-content button{
+    margin-top: 15px;
+  }
+  .lan-btn {
+    background-color: #555;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+  
+  .lan-btn:hover {
+    background-color: #f78c00;
+  }
+
+  
+  .lan-footer {
+    background-color: #1d1d1d;
+    align-items: normal;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 30px;
+  }
+  .lan-footer h3{
+    color: #f78c00;
+  }
+  

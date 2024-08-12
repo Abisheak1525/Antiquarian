@@ -1,0 +1,87 @@
+.navbar {
+  height: px;
+  width: 100%;
+  background-color: #333;
+  color: white;
+  margin: auto;
+  position: fixed;
+  z-index: 1000;
+}
+.like-icon {
+  margin-top: 6px;
+  font-size: 24px;
+  padding-left: 25px;
+  cursor: pointer;
+  width: 100px;
+  height: 40px;
+  float: left;
+}
+.nv-ul{
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 130px;
+}
+.nv-ul .nv-li{
+  list-style: none;
+  margin-left: 62px;
+  font-size: 15px;
+}
+.nv-ul .nv-li a{
+  text-decoration: none;
+  color: white;
+  font-family: Arial;
+  font-weight: bold;
+  transition: 0.3s ease-in-out;
+}
+.nv-ul .nv-li a:hover{
+  cursor: pointer;
+  color: #f78c00;
+
+}
+
+.nv-sch{
+  float: left;
+  margin-left: 50px;
+}
+
+.nv-srch{
+  font-family: 'Times New Roman';
+  width: 150px;
+  height: 30px;
+  /* background: transparent; */
+  border: 13px;
+  margin-top: 13px;
+  color: black;
+  border-right: 16px;
+  /* border: 1.5px  solid #f78c00; */
+  float: left;
+  padding: 10px;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.nv-btn{
+  width: 70px;
+  height: 30px ;
+  color: white;
+  background: #f78c00;
+  border: 2px  solid #f78c00;
+  margin-top: 13px;
+  font-size: 15px;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.nv-btn:hover{
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  background-color: #fec376;
+  border: 2px  solid #fec376;
+}
+.nv-btn:focus{
+  outline: none;
+}
+.nv-srch:focus{
+  outline: none;
+}

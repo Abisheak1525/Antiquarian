@@ -1,0 +1,49 @@
+.gal-book-section {
+  padding: 40px 20px;
+  background-color: #2d2c2c;
+}
+
+.gal-book-section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: white;
+  text-align: center;
+}
+  
+.gal-book-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px;
+  padding: 0 20px;
+}
+  
+.gal-book-card {
+  background-color: #444;
+  color: white;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+  width: 150px;
+  transition: transform 0.2s;
+}
+  
+.gal-book-card:hover {
+  cursor: pointer;
+  background: #555;
+}
+  
+.gal-book-image {
+  width: 150px;
+  height: 180px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+  
+.gal-book-content {
+  padding: 10px;
+}
+  
+.gal-book-title {
+  font-size: 1.05em;
+  margin: 0 0 10px;
+}

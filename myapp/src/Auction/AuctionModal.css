@@ -1,0 +1,135 @@
+.auction-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.auction-modal {
+  background: #222;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 600px;
+  width: 100%;
+  position: relative;
+}
+
+.auction-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #555;
+}
+
+.auction-modal-close:hover {
+  color: #ffffff;
+}
+
+.auction-modal-content {
+  display: flex;
+  background: #444;
+}
+
+.auction-modal-image {
+  width: 50%;
+  height: auto;
+}
+
+.auction-modal-details {
+  background: #444;
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+}
+
+.auction-modal-title {
+  font-size: 24px;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.auction-modal-author,
+.auction-modal-user,
+.auction-modal-description,
+.auction-modal-start-bid,
+.auction-modal-top-bid {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.auction-modal-tabs {
+  display: flex;
+  justify-content: center;
+  margin-left: 166px;
+}
+
+.auction-modal-tab {
+  padding: 10px 20px;
+  background-color: #555;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.auction-modal-tab.active {
+  background-color: #444;
+  color: white;
+}
+
+.auction-modal-tab:not(.active):hover {
+  background-color: #555;
+}
+
+.auction-modal-details {
+  padding-top: 10px;
+}
+
+.auction-modal-title {
+  margin-top: 10px;
+}
+.auction-modal-bid {
+  display: flex;
+  flex-direction: column;
+  max-height: 400px;
+  overflow: hidden; 
+  position: relative;
+  margin-left: 15px;
+}
+
+.bid-content {
+  overflow-y: auto; /* Allow vertical scrolling inside the container */
+  padding-right: 15px; /* Space for scrollbar */
+}
+
+.auction-modal-recent-bids {
+  margin-top: 20px;
+  padding-top: 10px;
+  max-height: 100%; 
+}
+
+.auction-modal-recent-bids ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  overflow: auto; 
+}
+
+.auction-modal-recent-bids li {
+  background: #333;
+  margin-bottom: 5px;
+  padding: 5px;
+  border-radius: 4px;
+}

@@ -1,0 +1,112 @@
+/* BookSection.css */
+@import '~slick-carousel/slick/slick.css';
+@import '~slick-carousel/slick/slick-theme.css';
+
+.slick-prev:before,
+.slick-next:before {
+  color: black;
+}
+
+.book-section {
+  padding: 40px 20px;
+  background-color: #1b1b1b;
+}
+
+.book-section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.book-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  width: 100%;
+}
+
+.book-card {
+  background-color: #444;
+  color: white;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+  height: 280px;
+  width: 150px; 
+  transition: transform 0.2s;
+}
+
+.book-card:hover {
+  cursor: pointer;
+  /* transform: scale(1.05); */
+  /* border: none; */
+  background: #555;
+}
+
+.book-image {
+  width: 150px;
+  height: 180px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.book-content {
+  padding: 10px;
+}
+
+.book-title {
+  font-size: 1.05em;
+  margin: 0 0 10px;
+}
+.book-gerne{
+  margin-top: 60px;
+  color: white;
+}
+.begining-of-book-gerne{
+  color: white;
+}
+
+.book-description {
+  color: white;
+  margin-bottom: 10px;
+}
+
+.book-price {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.add-to-cart-button {
+  background-color: #777;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.add-to-cart-button:hover {
+  background-color: #f78c00;
+}
+
+.book-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.more-button {
+  background-color: #777;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.more-button:hover {
+  background-color: #f78c00;
+}
