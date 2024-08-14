@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { useUser } from '../Home/context/UserContext';
 import AdminLogin from './AdminLogin'; 
 import axios from 'axios';
+import login from './login.png';
+
 
 export default function Login({ onClose, onRegister }) {
     const [email, setEmail] = useState('');
@@ -39,38 +41,43 @@ export default function Login({ onClose, onRegister }) {
     return (
         <div className="login-modal">
             <div className="login-modal-content">
-                <span className="close-btn" onClick={onClose}>&times;</span>
-                <div className="text">Welcome Back</div>
-                <form onSubmit={handleSubmit}>
-                    <div className="data">
-                        <label>Email</label>
-                        <input 
-                          type="text" 
-                          value={email} 
-                          onChange={(e) => setEmail(e.target.value)} 
-                          required 
-                        />
-                    </div>
-                    <div className="data">
-                        <label>Password</label>
-                        <input 
-                          type="password" 
-                          value={password} 
-                          onChange={(e) => setPassword(e.target.value)} 
-                          required 
-                        />
-                    </div>
-                    <div className="forgot-pass">
-                        <a href="mailto:abisheaksakthivelmurugan@example.com">Forgot Password?</a>
-                    </div>
-                    <div className="btn">
-                        <button type="submit">Login</button>
-                    </div>
-                    <div className="signup-link">
-                        Not a member? <a href="#" onClick={onRegister}>New Account</a> or <a href="#" onClick={handleAdminLogin}>Admin</a>
-                    </div>
-                </form>
+                <div className="login-model-image">
+                    <img src={login} alt="welcome" className="login-image-left" />
+                </div>
+                <div className="form-container">
+                    <div className="text">Welcome Back</div>
+                    <form onSubmit={handleSubmit}>
+                        <span className="close-btn" onClick={onClose}>&times;</span>
+                        <div className="data">
+                            <label>Email</label>
+                            <input
+                                type="text"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                required
+                            />
+                        </div>
+                        <div className="data">
+                            <label>Password</label>
+                            <input
+                                type="password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                required
+                            />
+                        </div>
+                        <div className="forgot-pass">
+                            <a href="mailto:abisheaksakthivelmurugan@example.com">Forgot Password?</a>
+                        </div>
+                        <div className="btn">
+                            <button type="submit">Login</button>
+                        </div>
+                        <div className="signup-link">
+                            Not a member? <a href="#" onClick={onRegister}>New Account</a> or <a href="#" onClick={handleAdminLogin}>Admin</a>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-    );
+    );    
 }

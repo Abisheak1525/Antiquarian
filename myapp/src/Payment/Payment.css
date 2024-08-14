@@ -1,12 +1,10 @@
 .payment-charges-container {
-    margin-top: 100px;
     max-width: 600px;
     padding: 30px;
     margin: 0 auto;
-    padding: 20px;
-    background-color: #f9f9f9;
+    background-color: #333;
+    color: white;
     border-radius: 8px;
-
 }
 
 .payment-charges-item {
@@ -14,18 +12,10 @@
     justify-content: space-between;
     margin-bottom: 10px;
     padding: 10px;
-    border-bottom: 1px solid #ddd;
-    /* margin-top: 30px; */
 }
 
 .payment-charges-description {
     flex-grow: 1;
-}
-
-.payment-charges-paracharges {
-    margin-top: 5px;
-    color: #666;
-    font-size: 14px;
 }
 
 .payment-charges-amount {
@@ -57,27 +47,35 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    list-style: none;
 }
 
-.payment-charges-modal {
-    background-color: white;
+.payment-charges-modal{
+    background-color: #555;
     padding: 20px;
     border-radius: 8px;
     max-width: 400px;
     width: 100%;
-    text-align: center;
+    align-items: center;
+}
+.payment-charges-modal h2{
     
+}
+.payment-charges-modal ul{
+    list-style: none;
 }
 
 .payment-charges-container-methods {
     margin-top: 20px;
+    display: flex;
+    width: 650px;
+    gap: 30px;
+    margin-left: 60px;
 }
 
 .payment-charges-method-item {
     padding: 15px;
     margin-bottom: 10px;
-    background-color: #fff;
+    background-color: #333;
     border: 1px solid #ddd;
     border-radius: 8px;
     cursor: pointer;
@@ -86,7 +84,7 @@
 }
 
 .payment-charges-method-item.hovered {
-    background-color: #f0f0f0;
+    background-color: #444;
     border-color: #007bff;
 }
 
@@ -103,7 +101,7 @@
 }
 
 .payment-popup {
-    background-color: white;
+    background-color: #333;
     padding: 20px;
     border-radius: 8px;
     max-width: 400px;
@@ -143,7 +141,7 @@
 }
 
 .payment-payment-modal {
-    background-color: white;
+    background-color: #222;
     padding: 20px;
     border-radius: 8px;
     max-width: 400px;
@@ -158,10 +156,13 @@
 }
 
 .payment-payment-form input {
-    width: 100%;
+    width: 95%;
     padding: 10px;
     margin-top: 5px;
-    border: 1px solid #ddd;
+    outline: none;
+    background: #dfdfdf;
+    color: black;
+    border: 1px solid #333;
     border-radius: 4px;
 }
 
@@ -175,17 +176,27 @@
     cursor: pointer;
 }
 
-.payment-close-button {
-    margin-top: 10px;
-    background-color: #dc3545;
-}
 .shipping-address-textarea {
     width: 100%;
-    height: 20px;
+    height: 100px; /* Adjusted height for better readability */
     padding: 8px;
     margin-top: 10px;
     font-size: 14px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    resize: vertical;outline: none;
+    resize: vertical;
+    outline: none;
+}
+.payment-checkout-button{
+    margin-left: 250px;
+    background: #555;
+    color: white;
+    border: 1px solid black;
+    height: 30px;
+    width: 90px;
+}
+.payment-checkout-button:hover{
+    background: #f78c00;
+    cursor: pointer;
+    border: 1px solid #555;
 }

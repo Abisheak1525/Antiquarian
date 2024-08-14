@@ -3,16 +3,28 @@ import './Payment.css';
 import { useLocation } from 'react-router-dom';
 import Header from '../Home/Header/Header';
 import Footer from '../Footer/Footer';
+import { ButtonGroup } from '@mui/material';
 
 const Payment = () => {
     const { state } = useLocation();
     const selectedItems = state?.selectedItems || [];
-    
+
     const [showModal, setShowModal] = useState(false);
     const [hovered, setHovered] = useState(null);
     const [selectedMethod, setSelectedMethod] = useState(null);
     const [showPaymentForm, setShowPaymentForm] = useState(false);
     const [showConfirmationPopup, setShowConfirmationPopup] = useState(false);
+
+    const [addressDetails, setAddressDetails] = useState({
+        name: '',
+        phone: '',
+        country: '',
+        address: '',
+        town: '',
+        district: '',
+        state: '',
+        pincode: ''
+    });
 
     const handleModalOpen = () => {
         setShowModal(true);
@@ -44,6 +56,11 @@ const Payment = () => {
         setShowPaymentForm(false);
     };
 
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setAddressDetails(prevDetails => ({ ...prevDetails, [name]: value }));
+    };
+
     const bookPrice = selectedItems.reduce((total, item) => total + item.price, 0);
     const shippingFee = 30;
     const serviceTax = 15;
@@ -56,49 +73,118 @@ const Payment = () => {
     ];
 
     return (
-        <div>
-        {/* <Header/> */}
-    
+        <div className="payment-charges-all"><br/><br/><br/><br/>
+        
         <div className="payment-charges-container">
             <h2>Charges for Your Selected Books</h2>
+           
             {selectedItems.map((item, index) => (
                 <div key={index} className="payment-charges-item">
                     <div className="payment-charges-description">
-                        <h3>{item.title}</h3>
-                        <div className='payment-charges-paracharges'>
-                            <p>The book you selected costs ₹ {item.price.toLocaleString()}.</p>
-                        </div>
-                    </div>
-                    <div className="payment-charges-amount">
-                        ₹ {item.price.toLocaleString()}
+                        <h3>{item.title} - ₹ {item.price.toLocaleString()}</h3>
+                        
                     </div>
                 </div>
-            ))}
-            <div className="payment-charges-item">
-                <div className="payment-charges-description">
-                    <h3>Shipping Fee</h3>
-                    <div className='payment-charges-paracharges'>
-                        <p>Standard shipping fee for your location.</p>
-                        <textarea
-                            className="shipping-address-textarea"
-                            placeholder="Enter your shipping address here..."
-                            rows="4"
+            ))
+            }
+            
+            <div className="payment-adderess-details">
+                <h3>Shipping Address</h3>
+                <form>
+                    <div className="form-group">
+                        <label>Name</label>
+                        <input 
+                            type="text" 
+                            name="name" 
+                            value={addressDetails.name}
+                            onChange={handleInputChange}
+                            required
                         />
                     </div>
-                </div>
+                    <div className="form-group">
+                        <label>Phone</label>
+                        <input 
+                            type="text" 
+                            name="phone" 
+                            value={addressDetails.phone}
+                            onChange={handleInputChange}
+                            required
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label>Country/Region</label>
+                        <input 
+                            type="text" 
+                            name="country" 
+                            value={addressDetails.country}
+                            onChange={handleInputChange}
+                            required
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label>Address</label>
+                        <textarea 
+                            className="shipping-address-textarea"
+                            name="address"
+                            value={addressDetails.address}
+                            onChange={handleInputChange}
+                            placeholder="Enter your address here..."
+                            rows="4"
+                            required
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label>Town</label>
+                        <input 
+                            type="text" 
+                            name="town" 
+                            value={addressDetails.town}
+                            onChange={handleInputChange}
+                            required
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label>District</label>
+                        <input 
+                            type="text" 
+                            name="district" 
+                            value={addressDetails.district}
+                            onChange={handleInputChange}
+                            required
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label>State</label>
+                        <input 
+                            type="text" 
+                            name="state" 
+                            value={addressDetails.state}
+                            onChange={handleInputChange}
+                            required
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label>Pincode</label>
+                        <input 
+                            type="text" 
+                            name="pincode" 
+                            value={addressDetails.pincode}
+                            onChange={handleInputChange}
+                            required
+                        />
+                    </div>
+                </form>
+            </div>
+            <br></br>
+            <div className="payment-charges-item">
                 <div className="payment-charges-amount">
-                    ₹ {shippingFee.toLocaleString()}
+                   Shipping Fee - ₹ {shippingFee.toLocaleString()}
                 </div>
             </div>
             <div className="payment-charges-item">
-                <div className="payment-charges-description">
-                    <h3>Service Tax</h3>
-                    <div className='payment-charges-paracharges'>
-                        <p>Applicable service tax on the transaction.</p>
-                    </div>
-                </div>
+                
                 <div className="payment-charges-amount">
-                    ₹ {serviceTax.toLocaleString()}
+                    Service Tax - ₹ {serviceTax.toLocaleString()}
                 </div>
             </div>
             <div className="payment-charges-total">
@@ -128,8 +214,8 @@ const Payment = () => {
                 </div>
             )}
     
+            <h2>Select Payment Method</h2>
             <div className="payment-charges-container-methods">
-                <h2>Select Payment Method</h2>
                 {methods.map((method, index) => (
                     <div
                         key={index}
@@ -180,15 +266,15 @@ const Payment = () => {
                             </label>
                             <button type="submit">Proceed</button>
                         </form>
-                        <button className="payment-close-button" onClick={handlePaymentFormClose}>Close</button>
+                        <button onClick={handlePaymentFormClose}>Close</button>
                     </div>
                 </div>
-            )}
+            )}<br/>
+            <button className="payment-checkout-button" type="submit">check-Out</button>
         </div>
-        <Footer/>
-    </div>
-    
+            <br/>
+        </div>
     );
-}
+};
 
 export default Payment;

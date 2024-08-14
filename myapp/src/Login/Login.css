@@ -8,23 +8,41 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1001; /* Make sure it's above other elements */
+    z-index: 1001;
 }
 
 .login-modal-content {
+    display: flex; 
     background: #363636;
     color: #bcbcbc;
     padding: 20px;
     border-radius: 8px;
-    position: relative;
-    width: 320px;
-    max-width: 80%;
+    max-width: 100%;
 
+    width: 600px; 
+}
+
+.login-model-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-image-left {
+    max-width: 80%;
+    height: 200px;
+    border-radius: 8px;
+}
+
+.form-container {
+    flex: 1;
+    padding-left: 20px; 
 }
 
 .close-btn {
     position: absolute;
-    top: 0px;
+    top: 10px;
     right: 10px;
     font-size: 24px;
     cursor: pointer;
@@ -52,11 +70,10 @@
 .data input {
     background: #555;
     color: #bcbcbc;
-    width: 95%;
-    height: 10px;
+    width: 90%;
     padding: 10px;
     border: none;
-    border-radius: 4px;   
+    border-radius: 4px;
     outline: none;
 }
 
@@ -107,8 +124,4 @@
 .signup-link a:hover{
     color: #f78c00;
     cursor: pointer;
-}
-
-.span{
-    color: #f78c00;
 }

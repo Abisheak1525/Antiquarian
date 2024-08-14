@@ -18,7 +18,6 @@ export default function Profile({ onClose }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    console.log('Fetching user data...');
     if (user) {
       setFormData({
         username: user.username,
@@ -73,9 +72,11 @@ export default function Profile({ onClose }) {
       .then(response => {
         setUser(response.data);
         setIsEditable(false);
+        alert('Profile updated successfully');
       })
       .catch(error => {
         console.error('Error updating user profile:', error);
+        alert('Failed to update profile');
       });
   };
 
@@ -101,13 +102,13 @@ export default function Profile({ onClose }) {
                 <img src={icon} alt="Profile" className="profile-photo" />
                 {isEditable && <button className="change-photo-button">CHANGE PHOTO</button>}
                 <div className="additional-sections">
-                  <div className="section">
+                  <div className={`section ${currentSection === 'editProfile' ? 'active-section' : ''}`}>
                     <button onClick={() => handleSectionClick('editProfile')}>Edit Profile</button>
                   </div>
-                  <div className="section">
+                  <div className={`section ${currentSection === 'booksAdded' ? 'active-section' : ''}`}>
                     <button onClick={() => handleSectionClick('booksAdded')}>Books added</button>
                   </div>
-                  <div className="section">
+                  <div className={`section ${currentSection === 'booksInAuction' ? 'active-section' : ''}`}>
                     <button onClick={() => handleSectionClick('booksInAuction')}>Books in auction</button>
                   </div>
                 </div>
@@ -168,8 +169,6 @@ export default function Profile({ onClose }) {
               )}
               {currentSection === 'booksAdded' && (
                 <div className="books-added-section">
-                  <h3>Books added</h3>
-                  <p>Information about books added will be displayed here.</p>
                   <h3>Books added</h3>
                   <p>Information about books added will be displayed here.</p>
                 </div>

@@ -3,9 +3,9 @@ import './Order.css'; // Import the CSS file for the Orders page
 
 // Sample data for orders
 const ordersList = [
-  { id: 1, customer: 'John Doe', orderDate: '2024-08-01', total: '$250.00', status: 'Shipped' },
-  { id: 2, customer: 'Jane Smith', orderDate: '2024-08-02', total: '$150.00', status: 'Processing' },
-  { id: 3, customer: 'Alice Johnson', orderDate: '2024-08-03', total: '$300.00', status: 'Delivered' }
+  { id: 1, customer: 'Abi',book:'GOT', orderDate: '2024-08-01', total: '250.00', status: '-' },
+  { id: 2, customer: 'Admin',book:'Alice In BorderLand', orderDate: '2024-08-02', total: '150.00', status: '-' },
+  { id: 3, customer: 'User',book:'Price Of Percia', orderDate: '2024-08-03', total: '300.00', status: '-' }
 ];
 
 function Order() {
@@ -17,6 +17,7 @@ function Order() {
           <tr>
             <th>ID</th>
             <th>Customer</th>
+            <th>Book</th>
             <th>Order Date</th>
             <th>Total</th>
             <th>Status</th>
@@ -28,6 +29,7 @@ function Order() {
             <tr key={order.id}>
               <td>{order.id}</td>
               <td>{order.customer}</td>
+              <td>{order.book}</td>
               <td>{order.orderDate}</td>
               <td>{order.total}</td>
               <td>{order.status}</td>

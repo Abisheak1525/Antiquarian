@@ -3,7 +3,6 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import MainLanding from './Landing/MainLanding';
 import Home from './Home/Home';
-import Auction from './Auction/Auction';
 import OwnScript from './OwnScript/OwnScript';
 import Gallary from './Gallary/Gallary';
 import { CartProvider } from './Cart/CartContext';
@@ -18,7 +17,7 @@ import DashAuction from './Dashboard/Auction/DashAuction';
 import Order from './Dashboard/Orders/Order';
 import AboutUs from './Home/AboutUs/AboutUs';
 import MainAuction from './Auction/MainAuction';
-import Payment from './Payment/Payment';
+import MainPayment from './Payment/MainPayment';
 
 function App() {
   return (
@@ -41,10 +40,10 @@ function App() {
                 </Routes>
               </div>
             </div>
-          )} />
+          )}/>
           <Route path="/addbook" element={<AddBook />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/payment" element={<Payment />} /> 
+          <Route path="/payment" element={<MainPayment />} /> 
           <Route path="/own" element={<OwnScript/>} />
           <Route path="/gallary" element={<Gallary/>} />
           <Route path="/cart" element={<Cart/>} />

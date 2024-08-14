@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './ImageSlide.css';
-import hp from './library.jpeg';
+import hp from './lib.png';
 import { FaSearch } from 'react-icons/fa';  
 import { Link } from 'react-router-dom';
 

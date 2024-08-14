@@ -81,7 +81,7 @@ const Header = () => {
             <Link to="/gallary" className="gal-hm-nav-link">Gallery</Link>
           </li>
           <li>
-            <a href="/about" onClick={(e) => handleProtectedNavigation(e, '/cart')}  className="gal-hm-nav-link">About Us</a>
+            <a href="/about" onClick={(e) => handleProtectedNavigation(e, '/about')}  className="gal-hm-nav-link">About Us</a>
           </li>
           {user ? (
             <li className="gal-hm-nav-item gal-dropdown">

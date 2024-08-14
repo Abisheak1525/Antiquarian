@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import './Register.css';
 import axios from 'axios';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function Register({ onClose, onLogin }) {
-    const navigate=useNavigate();
+    const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
         username: '',
@@ -12,7 +12,7 @@ export default function Register({ onClose, onLogin }) {
         password: '',
         repassword: '',
     });
-    
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({
@@ -23,6 +23,10 @@ export default function Register({ onClose, onLogin }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (formData.password !== formData.repassword) {
+            alert("Passwords do not match");
+            return;
+        }
         try {
             const response = await axios.post('http://localhost:9001/addUser', formData);
             console.log('User registered:', response.data);
@@ -88,7 +92,7 @@ export default function Register({ onClose, onLogin }) {
                         </label>
                     </div>
                     <div className="rg-btn">
-                    <button type="submit" >Create Account</button>
+                        <button type="submit">Create Account</button>
                     </div>
                     <div className="rg-signup-link">
                         Already a member? <a href="#" onClick={onLogin}>Login</a>

@@ -1,111 +1,109 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import './AddBook.css';
 import { useNavigate } from 'react-router-dom';
 
+const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB in bytes
+
 export default function AddBook({ onClose }) {
-  const [showMessage, setShowMessage] = useState(false);
+  const [showMessage, setShowMessage] = useState('');
   const [bookDetails, setBookDetails] = useState({
     name: '',
     author: '',
     bookPrize: '',
     userPrize: '',
     description: '',
+    media: null, 
   });
-  const [selectedFiles, setSelectedFiles] = useState([]);
-  const navigate = useNavigate();
 
-  const modalRef = useRef(null);
+  const [preview, setPreview] = useState(null);
+  const [fileName, setFileName] = useState(''); 
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setBookDetails({ ...bookDetails, [name]: value });
   };
 
-  const handleFileChange = (e) => {
-    setSelectedFiles(Array.from(e.target.files));
-  };
-
-  const handleUploadClick = () => {
-    document.getElementById('fileInput').click();
-  };
-
-  const handleEditProfileClick = () => {
-    const formData = new FormData();
-    for (let i = 0; i < selectedFiles.length; i++) {
-      formData.append('files', selectedFiles[i]);
+  const handleMediaChange = (e) => {
+    const file = e.target.files[0];
+    if (file.size > MAX_FILE_SIZE) {
+      alert("File is too large. Please select a file smaller than 5MB.");
+      return;
     }
-    formData.append('name', bookDetails.name);
-    formData.append('author', bookDetails.author);
-    formData.append('bookPrize', bookDetails.bookPrize);
-    formData.append('userPrize', bookDetails.userPrize);
-    formData.append('description', bookDetails.description);
+    setBookDetails({ ...bookDetails, media: file });
+    const fileURL = URL.createObjectURL(file);
+    setPreview(fileURL);
+    setFileName(file.name);
+  };
 
-    axios.post('http://localhost:9001/addBooks', formData, {
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-    })
+  const validateForm = () => {
+    // Basic validation example
+    return bookDetails.name && bookDetails.author && bookDetails.bookPrize && bookDetails.userPrize;
+  };
+
+  const handleSaveClick = () => {
+    if (!validateForm()) {
+      alert("Please fill in all required fields.");
+      return;
+    }
+
+    const formData = new FormData();
+    for (const key in bookDetails) {
+      formData.append(key, bookDetails[key]);
+    }
+
+    axios.post('http://localhost:9001/addBooks', formData)
       .then(response => {
-        setShowMessage(true);
+        setShowMessage('Book added successfully!');
         setTimeout(() => {
           navigate('/home');
         }, 2000);
       })
       .catch(error => {
         console.error('There was an error adding the book!', error);
+        setShowMessage('Failed to add book. Please try again.');
       });
   };
 
   const handleBackClick = () => {
-    console.log('Back button clicked');
     if (onClose) {
       onClose();
+    } else {
+      navigate(0);
     }
   };
-
-  const handleClickOutside = (event) => {
-    if (modalRef.current && !modalRef.current.contains(event.target)) {
-      handleBackClick();
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
 
   return (
     <div className="addbook-all">
-      <div className="addbook-container" ref={modalRef}>
-      <span 
-        className="profile-close" 
-        onClick={() => { console.log('Direct click'); handleBackClick(); }}>
-        &times;
-      </span>
+      <div className="addbook-container">
+        <span className="profile-close" onClick={handleBackClick}>&times;</span>
         <div className="addbook-header">
           <h2>Book Details</h2>
         </div>
         <div className="addbook-form">
           <div className="addbook-photo-section">
-            {selectedFiles.length > 0 && (
-              <div className="file-names">
-                {selectedFiles.map((file, index) => (
-                  <div key={index} className="file-name">
-                    {file.name}
-                  </div>
-                ))}
+            {preview ? (
+              <div className="media-preview">
+                {bookDetails.media && bookDetails.media.type.startsWith('video/') ? (
+                  <video controls className="addbook-photo" src={preview} />
+                ) : (
+                  <img src={preview} alt="Preview" className="addbook-photo" />
+                )}
+              </div>
+            ) : (
+              <img src="" alt="Upload" className="addbook-photo" />
+            )}
+            {fileName && (
+              <div className="file-name">
+                <p>{fileName}</p>
               </div>
             )}
-            <button className="addbook-change-photo-button" onClick={handleUploadClick}>Upload images</button>
             <input
               type="file"
-              id="fileInput"
-              style={{ display: 'none' }}
-              onChange={handleFileChange}
-              multiple
+              accept="image/*,video/*"
+              onChange={handleMediaChange}
+              className="addbook-change-photo-button"
             />
           </div>
           <div className="addbook-details-section">
@@ -144,9 +142,9 @@ export default function AddBook({ onClose }) {
               onChange={handleInputChange}
             />
             <div className="addbook-buttons">
-              <button className="addbook-save-button" onClick={handleEditProfileClick}>Save</button>
+              <button className="addbook-save-button" onClick={handleSaveClick}>Save</button>
             </div>
-            {showMessage && <div className="addbook-message">Check mail for book details</div>}
+            {showMessage && <div className="addbook-message">{showMessage}</div>}
           </div>
         </div>
       </div>

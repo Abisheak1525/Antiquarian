@@ -5,11 +5,11 @@ export default function AuctionModal({ item, onClose }) {
   const [activeTab, setActiveTab] = useState('description');
   const [remainingTime, setRemainingTime] = useState('Calculating...');
   const [recentBids, setRecentBids] = useState([
-    { user: 'Alice', amount: '$150.00' },
-    { user: 'Bob', amount: '$145.00' }
+    { user: 'Alice', amount: '150.00' },
+    { user: 'Bob', amount: '145.00' }
   ]);
   const [newBid, setNewBid] = useState('');
-  const [topBid, setTopBid] = useState(item.topBid || '$0.00');
+  const [topBid, setTopBid] = useState(item.topBid || '0.00');
 
   useEffect(() => {
     if (item.endTime) {
@@ -28,7 +28,7 @@ export default function AuctionModal({ item, onClose }) {
       };
 
       calculateRemainingTime();
-      const interval = setInterval(calculateRemainingTime, 60000); // Update every minute
+      const interval = setInterval(calculateRemainingTime, 60000); 
 
       return () => clearInterval(interval);
     }
@@ -40,19 +40,15 @@ export default function AuctionModal({ item, onClose }) {
 
   const handleBidSubmit = () => {
     if (newBid) {
-      // Convert the new bid and current top bid to numbers
-      const newBidAmount = parseFloat(newBid.replace('$', ''));
-      const topBidAmount = parseFloat(topBid.replace('$', ''));
+      const newBidAmount = parseFloat(newBid.replace( ''));
+      const topBidAmount = parseFloat(topBid.replace(''));
 
-      // Update the top bid if the new bid is higher
       if (newBidAmount > topBidAmount) {
         setTopBid(`$${newBidAmount.toFixed(2)}`);
       }
 
-      // Update the recent bids list
       setRecentBids([{ user: 'You', amount: newBid }, ...recentBids]);
       setNewBid('');
-      // Optionally, send the new bid to the server here
     }
   };
 
